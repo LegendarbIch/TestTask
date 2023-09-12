@@ -30,7 +30,7 @@ public class StringParserController {
         this.responseErrorValidation = responseErrorValidation;
     }
 
-    @PostMapping("/onsymbolscount")
+    @PostMapping("/symbolscount")
     public ResponseEntity<Object> parseString(@Valid @RequestBody ParamString str, BindingResult bindingResult) {
 
         ResponseEntity<Object> errors = responseErrorValidation.mapValidationService(bindingResult);
