@@ -1,6 +1,9 @@
 package com.example.testtask;
 
+import com.example.testtask.service.MapSortingService;
+import com.example.testtask.service.StringParserService;
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class ParsingTest {
@@ -8,6 +11,7 @@ public class ParsingTest {
     MapSortingService mapSortingService = new MapSortingService();
     @Test
     public void split_the_string_into_the_occurrence_of_each_character() {
+
         System.out.println(stringParserService.calculateFrequencyOfCharacters("aaaaabcccc"));
     }
 

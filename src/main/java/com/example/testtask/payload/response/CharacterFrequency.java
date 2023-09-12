@@ -1,4 +1,4 @@
-package com.example.testtask;
+package com.example.testtask.payload.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

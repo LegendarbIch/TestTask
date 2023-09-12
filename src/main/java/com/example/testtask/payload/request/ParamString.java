@@ -1,7 +1,6 @@
-package com.example.testtask;
+package com.example.testtask.payload.request;
 
 import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data

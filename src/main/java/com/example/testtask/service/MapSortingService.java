@@ -1,5 +1,6 @@
-package com.example.testtask;
+package com.example.testtask.service;
 
+import com.example.testtask.payload.response.CharacterFrequency;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;

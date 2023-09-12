@@ -1,4 +1,4 @@
-package com.example.testtask;
+package com.example.testtask.service;
 
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ public class StringParserService {
     public Map<Character, Integer> calculateFrequencyOfCharacters(String str) {
         char[] arr = str.toCharArray();
         Map<Character, Integer> symbolAndFrequency = new HashMap<>();
-//        aaaaabcccc
+
         for (int i = 0; i < arr.length; i++) {
             int frequency = 1;
             if (i >= 1) {
