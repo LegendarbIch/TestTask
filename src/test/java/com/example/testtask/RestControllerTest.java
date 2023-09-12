@@ -3,6 +3,8 @@ package com.example.testtask;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -15,6 +17,7 @@ public class RestControllerTest {
     TestRestTemplate testRestTemplate;
     HttpHeaders header = new HttpHeaders();
 
+    public static final Logger LOG = LoggerFactory.getLogger(RestControllerTest.class);
     @Test
     public void sending_json_to_the_server_with_a_post_method_and_getting_the_result() {
 
@@ -30,6 +33,7 @@ public class RestControllerTest {
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isEqualTo("\"a\":4,\"c\":3,\"b\":2");
+        LOG.info(response.getBody());
     }
 
     @Test
@@ -45,5 +49,6 @@ public class RestControllerTest {
         ResponseEntity<String> response = testRestTemplate.exchange("/api/parse/onsymbolscount", HttpMethod.POST, httpEntity, String.class);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        LOG.info(response.getBody());
     }
 }
