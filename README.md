@@ -14,4 +14,35 @@ Spring boot 2+
 У решения должна быть документация по запуску и формату входящих/исходящих параметров
 Код решения необходимо разместить в публичном Github репозитории.
 
-#  документация решения по запуску и формату входящих/исходящих параметров
+##  Документация решения по запуску и формату входящих/исходящих параметров
+
+В проекте присутствуют следующие зависимости:
+1. spring-boot-starter-web
+2. spring-boot-starter-validation
+3. lombok
+4. spring-boot-starter-test
+
+![Снимок экрана 2023-09-12 201026](https://github.com/LegendarbIch/TestTask/assets/90645481/9fb9424a-fb2e-4546-b902-b8d413d1111e)
+
+### Описание контроллера:
+
+Для решения задачи был создан класс StringParserController помеченный анотацией @RestController, он имет один единственный эндпоинт [post] /api/parse/symbolscount, метод вычисляет частоту символов в строке и возвращает string ответ типа “a”: 5, “c”: 4, “b”: 1 со статусом 200 в случае успеха.
+
+![image](https://github.com/LegendarbIch/TestTask/assets/90645481/f5c3719d-73d9-4ed2-879c-4718d0366b54)
+
+Метод parseString принимает в себя обьект ParamString с полем string, обозначающее вводимую пользователем строку, указанную в post-запросе, а так же BindingResult для обработки ошибок.
+
+![image](https://github.com/LegendarbIch/TestTask/assets/90645481/829fffee-184b-4e24-9df3-7acf9e6208dd)
+
+### Получение требуемого ответа от сервера с помощью Postman
+После поднятия контекста приложения, сервер запустится на порту 8080, с помощью Postman отправим post-запрос на локальный сервер с url http://localhost:8080/api/parse/symbolscount, для получения ответа от сервера необходимо в body указать json строку с полем string:
+
+![image](https://github.com/LegendarbIch/TestTask/assets/90645481/ec9c723f-af61-427b-aab0-cbed51b55e1a)
+
+После отправки запроса приходит необходимый ответ частоты встречаемых символов в отправленной строке в ввиде string со статусом 200
+
+![image](https://github.com/LegendarbIch/TestTask/assets/90645481/259970b4-a25a-4620-bdfc-c4f2037e0c05)
+
+Если отправить на сервер пустое поле string в json-строке, сервер отправит json-ответ с ошибкой и статус код 400
+
+![image](https://github.com/LegendarbIch/TestTask/assets/90645481/ab5ce507-5dd1-4102-83a0-0d3c4cbff6e2)
